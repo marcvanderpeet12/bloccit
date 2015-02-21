@@ -3,9 +3,13 @@
 <% @posts.each do |post| %>
  <div class="media">
   <div class="media-body">
-   <div class="media-heading">
+   <h4 class="media-heading">
     <%= link_to post.title, post_path(post.id) %></p>
-   </div>
+        <small>
+         submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
+         <%= post.comments.count %> Comments
+       </small>
+   </h4>
   </div>
  </div>
 
