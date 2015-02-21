@@ -52,3 +52,4 @@ end
 
 
 gem 'bootstrap-sass'
+gem 'faker'
