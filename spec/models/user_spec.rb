@@ -3,7 +3,6 @@ require 'rails_helper'
  describe User do
  
    include TestFactories
- 
    
     before do 
       @user = create(:user)
