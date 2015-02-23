@@ -18,6 +18,10 @@
                 submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
                 <%= post.comments.count %> Comments
               </small>
+
+              <% if policy(@topic).new? %> 
+                <%= render partial: 'votes/voter', locals: { post: @post } %> </h1>
+              <% end %>
          </div>
        </div>
      <% end %>
