@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   get 'comments/create'
 
   devise_for :users
+
   resources :topics do
-    resources :posts, except: [:index] do
-      resources :comments, only: [:create]
-    end 
-  end
+     resources :posts, except: [:index]
+   end
+ 
+   resources :posts, only: [] do
+     resources :comments, only: [:create, :destroy]
+   end
   
   resources :users, only: [:update]
   
