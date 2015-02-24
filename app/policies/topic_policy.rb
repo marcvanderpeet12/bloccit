@@ -15,4 +15,8 @@
    def destroy?
      user.present? 
    end
+
+   def show?
+     record.public? || user.present?
+   end
  end
