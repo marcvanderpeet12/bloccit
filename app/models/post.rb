@@ -7,6 +7,9 @@ class Post < ActiveRecord::Base
 
   default_scope { order('rank DESC') }
 
+  #Dit is query waarmee je alleen posts laat zien waarvan het topic zichtbaar is voor de user
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
+
    validates :title, length: { minimum: 5 }, presence: true
    validates :body, length: { minimum: 20 }, presence: true
    validates :topic, presence: true

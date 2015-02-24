@@ -1,13 +1,9 @@
  <div class="well"> 
   <div class="row">
     <div class="col-md-12">
+     <%= render partial: 'votes/voter', locals: { post: @post } %>
       
         <h1><%= markdown_to_html @post.title %>
-      <div class="vote-arrows pull-right">
-       <% if policy(@post).new? %> 
-        <%= render partial: 'votes/voter', locals: { post: @post } %> </h1>
-       <% end %>
-      </div>
 
         <h1><%= markdown_to_html @post.body %></h1>
 
